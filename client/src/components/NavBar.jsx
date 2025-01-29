@@ -41,6 +41,18 @@ const NavBar = () => {
                 Counterfeit Holding
               </Link>
             </Nav.Item>
+
+            <Nav.Item>
+              <Link 
+                to="/test" 
+                className={`navbar-link ${location.pathname === '/test' ? 'text-primary fw-bold' : 'text-secondary fw-normal'} position-relative nav-link`}
+              >
+                Test Screen
+              </Link>
+            </Nav.Item>
+
+
+
           </Nav>
         </Navbar.Collapse>
       </Container>

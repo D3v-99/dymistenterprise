@@ -11,6 +11,8 @@ const cashRoutes = require('./Routes/cashRoutes');
 const { notFound ,errorHandler} = require('./middleware/errorMiddleware');
 
 
+
+const {connectToDatabase} = require("./Middleware/db")
 const app = express();
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
@@ -30,15 +32,16 @@ app.use(notFound)
 app.use(errorHandler)
 
 
-// connect(MONGO_URI).then(() => {
-//   app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-//   });
-// }).catch((error) => { 
-//   console.log('error', error);
-// });
 
-app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  
+app.listen(PORT, async () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+      
+      // Connect to the database and log the connection status
+      try {
+        await connectToDatabase();
+      } catch (err) {
+        console.error('Exiting application due to database connection error.');
+        process.exit(1); // Exit the app if the database connection fails
+      }
+});
+       

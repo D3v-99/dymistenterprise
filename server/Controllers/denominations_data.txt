@@ -1,0 +1,54 @@
+{
+  "branch": "CITY MALL BRANCH",
+  "DEPT_CODE": "108",
+  "denominations": [
+    {
+      "DENOMINATION": "KES1000",
+      "TOTAL_QUANTITY": 158,
+      "fit": {
+        "new": {
+          "amount": 155,
+          "serialCode": "KESB1000"
+        },
+        "old": {
+          "amount": 0,
+          "serialCode": "KES1000"
+        }
+      },
+      "unfit": {
+        "new": {
+          "amount": 3,
+          "serialCode": "KESB1000"
+        },
+        "old": {
+          "amount": 0,
+          "serialCode": "KES1000"
+        }
+      }
+    },
+    {
+      "DENOMINATION": "KES500",
+      "TOTAL_QUANTITY": 214,
+      "fit": {
+        "new": {
+          "amount": 169,
+          "serialCode": "KESB500"
+        },
+        "old": {
+          "amount": 0,
+          "serialCode": "KES500"
+        }
+      },
+      "unfit": {
+        "new": {
+          "amount": 45,
+          "serialCode": "KESB500"
+        },
+        "old": {
+          "amount": 0,
+          "serialCode": "KES500"
+        }
+      }
+    }
+  ]
+}

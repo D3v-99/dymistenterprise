@@ -1,41 +1,88 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import { FaTrash, FaPlus } from "react-icons/fa";
 
-const NotesHolding = () => {
+const CounterfeitHolding = () => {
   const [form, setForm] = useState({
-    branch: "",
-    denominations: [{ denomination: "", fit: "", unfit: "" }],
-  });
-
-  const handleChange = (e, index, field) => {
-    const { value } = e.target;
-    const updatedDenominations = [...form.denominations];
-    updatedDenominations[index][field] = value;
-    setForm({ ...form, denominations: updatedDenominations });
-  };
-
-  const handleAddDenomination = () => {
-    setForm((prevState) => ({
-      ...prevState,
-      denominations: [
-        ...prevState.denominations,
-        { denomination: "", fit: "", unfit: "" },
-      ],
-    }));
-  };
-
-  const handleRemoveDenomination = (index) => {
-    const updatedDenominations = form.denominations.filter((_, i) => i !== index);
-    setForm({ ...form, denominations: updatedDenominations });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-    alert("Form submitted successfully!");
-  };
-
+     branch: "",
+     denominations: [{ denomination: "", fit: "", unfit: "" }],
+   });
+ 
+   const [branches, setBranches] = useState([]);
+   const [loading, setLoading] = useState(true);
+ 
+   // Fetch branches from API
+   useEffect(() => {
+     const fetchBranches = async () => {
+       try {
+         const response = await fetch("http://localhost:8000/api/cash/branches");
+         const result = await response.json();
+         if (result.success) {
+           setBranches(result.data[0]); // Assuming `data[0]` contains the branch array
+         } else {
+           console.error("Failed to fetch branches.");
+         }
+       } catch (error) {
+         console.error("Error fetching branches:", error);
+       } finally {
+         setLoading(false);
+       }
+     };
+ 
+     fetchBranches();
+   }, []);
+ 
+   const handleChange = (e, index, field) => {
+     const { value } = e.target;
+     const updatedDenominations = [...form.denominations];
+     updatedDenominations[index][field] = value;
+     setForm({ ...form, denominations: updatedDenominations });
+   };
+ 
+   const handleAddDenomination = () => {
+     setForm((prevState) => ({
+       ...prevState,
+       denominations: [
+         ...prevState.denominations,
+         { denomination: "", fit: "", unfit: "" },
+       ],
+     }));
+   };
+ 
+   const handleRemoveDenomination = (index) => {
+     const updatedDenominations = form.denominations.filter((_, i) => i !== index);
+     setForm({ ...form, denominations: updatedDenominations });
+   };
+ 
+   const handleSubmit = async (e) => {
+     e.preventDefault();
+ 
+     try {
+       const response = await fetch("http://localhost:8000/api/cash", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify(form),
+       });
+ 
+       if (response.ok) {
+         const result = await response.json();
+         alert("Form submitted successfully!");
+         console.log("Response:", result);
+         setForm({
+           branch: "",
+           denominations: [{ denomination: "", fit: "", unfit: "" }],
+         });
+       } else {
+         console.error("Failed to submit form:", response.statusText);
+         alert("Failed to submit the form. Please try again.");
+       }
+     } catch (error) {
+       console.error("Error submitting form:", error);
+       alert("An error occurred. Please try again.");
+     }
+   };
   return (
     <Container
       className="mt-5 p-4"
@@ -46,7 +93,7 @@ const NotesHolding = () => {
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <h3 className="text-center mb-4">Cash Denomination Form</h3>
+      <h3 className="text-center mb-4">Counterfeit Denomination Form</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="branchName" className="mb-4">
           <Form.Label>Branch Name</Form.Label>
@@ -56,10 +103,14 @@ const NotesHolding = () => {
             value={form.branch}
             onChange={(e) => setForm({ ...form, branch: e.target.value })}
           >
-            <option value="">Select Branch</option>
-            <option value="Branch A">Branch A</option>
-            <option value="Branch B">Branch B</option>
-            <option value="Branch C">Branch C</option>
+            <option value="">
+              {loading ? "Loading branches..." : "Select Branch"}
+            </option>
+            {branches.map((branch) => (
+              <option key={branch.NCBA_BRANCH_CODE} id={branch.NCBA_BRANCH_CODE} value={branch.NCBA_BRANCH_NAME}>
+                {branch.NCBA_BRANCH_NAME}
+              </option>
+            ))}
           </Form.Control>
         </Form.Group>
 
@@ -161,4 +212,4 @@ const NotesHolding = () => {
   );
 };
 
-export default NotesHolding;
+export default CounterfeitHolding;

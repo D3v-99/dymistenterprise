@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import NotesHolding from './screens/NotesHolding';
 import CoinsHolding from './screens/CoinsHolding';
 import CounterfeitHolding from './screens/CounterfeitHolding';
+import TestScreen from './screens/Test2';
+// import TestScreen from './screens/TestScreen';
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<NotesHolding />} />
+          <Route path="/test" element={<TestScreen />} />
           <Route path="/cash-holding" element={<NotesHolding />} />
           <Route path="/coins-holding" element={<CoinsHolding />} />
           <Route path="/counterfeit-holding" element={<CounterfeitHolding />} />
+          <Route path="/test" element={<TestScreen />} />
         </Routes>
       </div>
       <Footer />

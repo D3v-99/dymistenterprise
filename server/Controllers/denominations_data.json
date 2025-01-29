@@ -1,0 +1,54 @@
+{
+  "branch": "JUNCTION BRANCH",
+  "DEPT_CODE": "106",
+  "denominations": [
+    {
+      "DENOMINATION": "KES1000",
+      "TOTAL_QUANTITY": 36,
+      "fit": {
+        "new": {
+          "amount": "68",
+          "serialCode": "KESB1000"
+        },
+        "old": {
+          "amount": "89",
+          "serialCode": "KES1000"
+        }
+      },
+      "unfit": {
+        "new": {
+          "amount": "56",
+          "serialCode": "KESB1000"
+        },
+        "old": {
+          "amount": "67",
+          "serialCode": "KES1000"
+        }
+      }
+    },
+    {
+      "DENOMINATION": "KES500",
+      "TOTAL_QUANTITY": 64,
+      "fit": {
+        "new": {
+          "amount": "7",
+          "serialCode": "KESB500"
+        },
+        "old": {
+          "amount": "98",
+          "serialCode": "KES500"
+        }
+      },
+      "unfit": {
+        "new": {
+          "amount": "44",
+          "serialCode": "KESB500"
+        },
+        "old": {
+          "amount": "55",
+          "serialCode": "KES500"
+        }
+      }
+    }
+  ]
+}
