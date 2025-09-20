@@ -1,38 +1,420 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Custom Properties for Color Scheme */
+:root {
+  --primary-navy: #003366;
+  --secondary-teal: #008080;
+  --background-off-white: #f8f9fa;
+  --text-charcoal: #333333;
+  --text-muted: #6c757d;
+  --border-light: #e9ecef;
+  --white: #ffffff;
+  --primary-rgb: 0, 51, 102;
+  --secondary-rgb: 0, 128, 128;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-charcoal);
+  background-color: var(--background-off-white);
+}
+
+/* App Layout */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Bootstrap Override - Primary Colors */
+.btn-primary {
+  background-color: var(--primary-navy);
+  border-color: var(--primary-navy);
+  font-weight: 500;
+  padding: 12px 30px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: rgba(var(--primary-rgb), 0.9);
+  border-color: rgba(var(--primary-rgb), 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);
+}
+
+.btn-outline-primary {
+  color: var(--primary-navy);
+  border-color: var(--primary-navy);
+  font-weight: 500;
+  padding: 12px 30px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: var(--primary-navy);
+  border-color: var(--primary-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);
+}
+
+.text-primary {
+  color: var(--secondary-teal) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-navy) !important;
+}
+
+/* Navigation Styles */
+.custom-navbar {
+  background-color: var(--white);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(var(--primary-rgb), 0.1);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-navy) !important;
+  text-decoration: none;
+}
+
+.brand-logo:hover {
+  color: var(--secondary-teal) !important;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: var(--text-charcoal) !important;
+  margin: 0 15px;
+  padding: 8px 16px !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--secondary-teal) !important;
+  background-color: rgba(var(--secondary-rgb), 0.1);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 4px 8px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Footer Styles */
+.custom-footer {
+  background-color: var(--primary-navy);
+  color: var(--white);
+  margin-top: auto;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--white);
+}
+
+.social-link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 0;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--background-off-white) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+  position: relative;
+}
+
+.hero-title {
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.hero-buttons .btn {
+  min-width: 180px;
+}
+
+/* Section Styles */
+.intro-section {
+  background-color: var(--white);
+}
+
+.intro-text {
+  color: var(--text-charcoal);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-preview {
+  background-color: var(--background-off-white);
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Service Cards */
+.service-card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(var(--primary-rgb), 0.1);
+}
+
+.service-icon {
+  margin-bottom: 1.5rem;
+}
+
+.service-card .card-title {
+  font-weight: 600;
+  color: var(--primary-navy);
+}
+
+.service-card .card-text {
+  line-height: 1.6;
+}
+
+/* Page Headers */
+.page-header {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.page-title {
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Services Page */
+.services-detail .service-content {
+  padding: 2rem 0;
+}
+
+.service-title {
+  color: var(--primary-navy);
+  font-weight: 600;
+}
+
+.service-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.service-image img {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.service-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Contact Page */
+.contact-form {
+  background-color: var(--white);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.1);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--text-charcoal);
+  margin-bottom: 0.75rem;
+}
+
+.form-control,
+.form-control-lg {
+  border: 2px solid var(--border-light);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-control-lg:focus {
+  border-color: var(--secondary-teal);
+  box-shadow: 0 0 0 0.2rem rgba(var(--secondary-rgb), 0.25);
+}
+
+.contact-info {
+  padding: 2rem 0;
+}
+
+.contact-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-link {
+  color: var(--secondary-teal);
+  font-weight: 500;
+}
+
+.contact-link:hover {
+  color: var(--primary-navy);
+}
+
+/* Call to Action */
+.cta-section {
+  background: linear-gradient(135deg, var(--secondary-teal) 0%, var(--primary-navy) 100%);
+  color: var(--white);
+}
+
+.cta-title {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.cta-description {
+  opacity: 0.9;
+}
+
+.cta-section .btn-primary {
+  background-color: var(--white);
+  color: var(--primary-navy);
+  border-color: var(--white);
+  font-weight: 600;
+}
+
+.cta-section .btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  color: var(--primary-navy);
+}
+
+/* Utility Classes */
+.text-primary-navy {
+  color: var(--primary-navy) !important;
+}
+
+.text-secondary-teal {
+  color: var(--secondary-teal) !important;
+}
+
+.bg-off-white {
+  background-color: var(--background-off-white) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .contact-form {
+    padding: 2rem;
+  }
+  
+  .service-content {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons .btn {
+    min-width: auto;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
   }
 }
