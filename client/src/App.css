@@ -26,7 +26,7 @@ body {
   line-height: 1.6;
   color: var(--text-charcoal);
   background-color: var(--background-off-white);
-  font-size: 18px; /* Increase base font size */
+  font-size: 16px; /* Reduce from 18px to 16px */
 }
 
 /* App Layout */
@@ -45,10 +45,10 @@ main {
   background-color: var(--primary-navy);
   border-color: var(--primary-navy);
   font-weight: 500;
-  padding: 16px 36px; /* Increase padding */
+  padding: 14px 32px; /* Reduce from 16px 36px */
   border-radius: 8px;
   transition: all 0.3s ease;
-  font-size: 1.1rem; /* Increase font size */
+  font-size: 1rem; /* Reduce from 1.1rem */
 }
 
 .btn-primary:hover,
@@ -63,10 +63,10 @@ main {
   color: var(--primary-navy);
   border-color: var(--primary-navy);
   font-weight: 500;
-  padding: 16px 36px; /* Increase padding */
+  padding: 14px 32px; /* Reduce from 16px 36px */
   border-radius: 8px;
   transition: all 0.3s ease;
-  font-size: 1.1rem; /* Increase font size */
+  font-size: 1rem; /* Reduce from 1.1rem */
 }
 
 .btn-outline-primary:hover,
@@ -90,12 +90,12 @@ main {
   background-color: var(--white);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px rgba(var(--primary-rgb), 0.1);
-  padding: 1.5rem 0; /* Increase from 1rem */
+  padding: 1.2rem 0; /* Reduce from 1.5rem */
   transition: all 0.3s ease;
 }
 
 .brand-logo {
-  font-size: 1.8rem; /* Increase from 1.5rem */
+  font-size: 1.6rem; /* Reduce from 1.8rem */
   font-weight: 700;
   color: var(--primary-navy) !important;
   text-decoration: none;
@@ -109,7 +109,7 @@ main {
 }
 
 .brand-logo img {
-  height: 61px;
+  height: 50px; /* Reduce from 61px to 50px */
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -122,10 +122,10 @@ main {
   font-weight: 500;
   color: var(--text-charcoal) !important;
   margin: 0 15px;
-  padding: 10px 20px !important; /* Increase padding */
+  padding: 8px 18px !important; /* Reduce padding */
   border-radius: 6px;
   transition: all 0.3s ease;
-  font-size: 1.1rem; /* Add explicit font size */
+  font-size: 1rem; /* Reduce from 1.1rem */
 }
 
 .navbar-nav .nav-link:hover,
@@ -190,7 +190,7 @@ main {
 .hero-section {
   background: linear-gradient(135deg, var(--background-off-white) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
   position: relative;
-  padding-top: 120px; /* Increase to accommodate larger navbar */
+  padding-top: 110px; /* Reduce from 120px */
 }
 
 .hero-title {
@@ -201,7 +201,7 @@ main {
 }
 
 .hero-subtitle {
-  font-size: 1.4rem; /* Increase from 1.25rem */
+  font-size: 1.2rem; /* Reduce from 1.4rem */
   color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto 3rem;
@@ -221,7 +221,7 @@ main {
   color: var(--text-charcoal);
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.2rem; /* Add explicit font size */
+  font-size: 1.1rem; /* Reduce from 1.2rem */
   line-height: 1.7;
 }
 
@@ -236,7 +236,7 @@ main {
 }
 
 .section-subtitle {
-  font-size: 1.2rem; /* Increase from 1.1rem */
+  font-size: 1.1rem; /* Back to original size */
   max-width: 600px;
   margin: 0 auto;
 }
