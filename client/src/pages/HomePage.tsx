@@ -42,7 +42,7 @@ const HomePage = () => {
                 Elevating Business with Integrated Solutions
               </h1>
               <p className="hero-subtitle lead mb-5">
-                Empowering businesses across Kenya with comprehensive solutions in invoicing, branding, interior design, supply chain management, and cutting-edge website development. Your success is our mission.
+                Dymist Enterprise provides expert invoicing, branding, interior design, supply services, and website development.
               </p>
               <div className="hero-buttons">
                 <Link to="/services" className="btn btn-primary btn-lg me-3 mb-3">
