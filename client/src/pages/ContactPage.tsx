@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaUniversity } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 
 interface FormData {
   name: string
