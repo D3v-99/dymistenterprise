@@ -1,5 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap'
-import { FaFileInvoiceDollar, FaPalette, FaCouch, FaTruck } from 'react-icons/fa'
+import { FaFileInvoiceDollar, FaPalette, FaCouch, FaTruck, FaCalculator, FaPaintBrush, FaHome, FaBoxes } from 'react-icons/fa'
 
 const ServicesPage = () => {
   const services = [
@@ -7,25 +7,53 @@ const ServicesPage = () => {
       icon: <FaFileInvoiceDollar size={60} />,
       title: 'Invoicing Solutions',
       description: 'Streamline your financial operations with our comprehensive invoicing systems. We provide custom billing solutions, automated payment tracking, and professional invoice templates that help you get paid faster and maintain healthy cash flow.',
-      image: 'https://picsum.photos/600/400?random=1'
+      illustration: (
+        <div className="service-illustration">
+          <div className="illustration-bg">
+            <FaCalculator size={120} className="main-icon" />
+            <FaFileInvoiceDollar size={80} className="secondary-icon" />
+          </div>
+        </div>
+      )
     },
     {
       icon: <FaPalette size={60} />,
       title: 'Branding & Design',
       description: 'Create a powerful brand identity that resonates with your target audience. Our creative team specializes in logo design, brand guidelines, marketing materials, and digital assets that tell your unique story and differentiate you from competitors.',
-      image: 'https://picsum.photos/600/400?random=2'
+      illustration: (
+        <div className="service-illustration">
+          <div className="illustration-bg">
+            <FaPaintBrush size={120} className="main-icon" />
+            <FaPalette size={80} className="secondary-icon" />
+          </div>
+        </div>
+      )
     },
     {
       icon: <FaCouch size={60} />,
       title: 'Interior Décor',
       description: 'Transform your commercial and residential spaces into inspiring environments. Our interior design experts combine functionality with aesthetics to create spaces that enhance productivity, comfort, and reflect your personal or brand style.',
-      image: 'https://picsum.photos/600/400?random=3'
+      illustration: (
+        <div className="service-illustration">
+          <div className="illustration-bg">
+            <FaHome size={120} className="main-icon" />
+            <FaCouch size={80} className="secondary-icon" />
+          </div>
+        </div>
+      )
     },
     {
       icon: <FaTruck size={60} />,
       title: 'Supply Services',
       description: 'Optimize your supply chain with our procurement and logistics expertise. We handle vendor relationships, inventory management, quality control, and timely delivery to ensure your business operations run smoothly and efficiently.',
-      image: 'https://picsum.photos/600/400?random=4'
+      illustration: (
+        <div className="service-illustration">
+          <div className="illustration-bg">
+            <FaBoxes size={120} className="main-icon" />
+            <FaTruck size={80} className="secondary-icon" />
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -69,11 +97,7 @@ const ServicesPage = () => {
                   </Col>
                   <Col lg={6}>
                     <div className="service-image">
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="img-fluid rounded shadow-sm"
-                      />
+                      {service.illustration}
                     </div>
                   </Col>
                 </>
@@ -92,11 +116,7 @@ const ServicesPage = () => {
                   </Col>
                   <Col lg={6} className="order-lg-1">
                     <div className="service-image">
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="img-fluid rounded shadow-sm"
-                      />
+                      {service.illustration}
                     </div>
                   </Col>
                 </>

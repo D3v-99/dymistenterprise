@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { Link, useLocation } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
+import logo from '../logo.jpg'
 
 const Navigation = () => {
   const location = useLocation()
@@ -9,6 +10,7 @@ const Navigation = () => {
     <Navbar expand="lg" className="custom-navbar" fixed="top">
       <Container>
         <Navbar.Brand as={Link} to="/" className="brand-logo">
+          <img src={logo} alt="Dymist Enterprise Logo" />
           <strong>Dymist Enterprise</strong>
         </Navbar.Brand>
         
