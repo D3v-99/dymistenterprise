@@ -1,6 +1,6 @@
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { FaFileInvoiceDollar, FaPalette, FaCouch, FaTruck } from 'react-icons/fa'
+import { FaFileInvoiceDollar, FaPalette, FaCouch, FaTruck, FaCode } from 'react-icons/fa'
 
 const HomePage = () => {
   const services = [
@@ -23,6 +23,11 @@ const HomePage = () => {
       icon: <FaTruck size={48} />,
       title: 'Supply Services',
       description: 'Reliable supply chain management and procurement solutions.'
+    },
+    {
+      icon: <FaCode size={48} />,
+      title: 'Website Development',
+      description: 'Modern, responsive websites that elevate your digital presence.'
     }
   ]
 
@@ -80,16 +85,16 @@ const HomePage = () => {
             </Col>
           </Row>
           
-          <Row className="g-4">
+          <Row className="g-4 justify-content-center">
             {services.map((service, index) => (
-              <Col md={6} lg={3} key={index}>
-                <Card className="service-card h-100 border-0 shadow-sm">
+              <Col md={6} lg={4} xl={2} key={index} className="d-flex">
+                <Card className="service-card h-100 border-0 shadow-sm w-100">
                   <Card.Body className="text-center p-4">
                     <div className="service-icon text-primary mb-3">
                       {service.icon}
                     </div>
-                    <Card.Title className="h5 mb-3">{service.title}</Card.Title>
-                    <Card.Text className="text-muted">
+                    <Card.Title className="h6 mb-3">{service.title}</Card.Title>
+                    <Card.Text className="text-muted small">
                       {service.description}
                     </Card.Text>
                   </Card.Body>

@@ -1,5 +1,12 @@
 import { Container, Row, Col } from 'react-bootstrap'
-import { FaFileInvoiceDollar, FaPalette, FaCouch, FaTruck, FaCalculator, FaPaintBrush, FaHome, FaBoxes } from 'react-icons/fa'
+import { FaFileInvoiceDollar, FaPalette, FaCouch, FaTruck, FaCode } from 'react-icons/fa'
+
+// Import service images
+import invoicingImg from '../assets/serv-images/invoicing_solutions.jpg'
+import brandingImg from '../assets/serv-images/branding_design.jpg'
+import interiorImg from '../assets/serv-images/interior_decor.jpg'
+import supplyImg from '../assets/serv-images/supply_services.jpg'
+import websiteImg from '../assets/serv-images/website_development.jpg'
 
 const ServicesPage = () => {
   const services = [
@@ -7,53 +14,31 @@ const ServicesPage = () => {
       icon: <FaFileInvoiceDollar size={60} />,
       title: 'Invoicing Solutions',
       description: 'Streamline your financial operations with our comprehensive invoicing systems. We provide custom billing solutions, automated payment tracking, and professional invoice templates that help you get paid faster and maintain healthy cash flow.',
-      illustration: (
-        <div className="service-illustration">
-          <div className="illustration-bg">
-            <FaCalculator size={120} className="main-icon" />
-            <FaFileInvoiceDollar size={80} className="secondary-icon" />
-          </div>
-        </div>
-      )
+      image: invoicingImg
     },
     {
       icon: <FaPalette size={60} />,
       title: 'Branding & Design',
       description: 'Create a powerful brand identity that resonates with your target audience. Our creative team specializes in logo design, brand guidelines, marketing materials, and digital assets that tell your unique story and differentiate you from competitors.',
-      illustration: (
-        <div className="service-illustration">
-          <div className="illustration-bg">
-            <FaPaintBrush size={120} className="main-icon" />
-            <FaPalette size={80} className="secondary-icon" />
-          </div>
-        </div>
-      )
+      image: brandingImg
     },
     {
       icon: <FaCouch size={60} />,
       title: 'Interior Décor',
       description: 'Transform your commercial and residential spaces into inspiring environments. Our interior design experts combine functionality with aesthetics to create spaces that enhance productivity, comfort, and reflect your personal or brand style.',
-      illustration: (
-        <div className="service-illustration">
-          <div className="illustration-bg">
-            <FaHome size={120} className="main-icon" />
-            <FaCouch size={80} className="secondary-icon" />
-          </div>
-        </div>
-      )
+      image: interiorImg
     },
     {
       icon: <FaTruck size={60} />,
       title: 'Supply Services',
       description: 'Optimize your supply chain with our procurement and logistics expertise. We handle vendor relationships, inventory management, quality control, and timely delivery to ensure your business operations run smoothly and efficiently.',
-      illustration: (
-        <div className="service-illustration">
-          <div className="illustration-bg">
-            <FaBoxes size={120} className="main-icon" />
-            <FaTruck size={80} className="secondary-icon" />
-          </div>
-        </div>
-      )
+      image: supplyImg
+    },
+    {
+      icon: <FaCode size={60} />,
+      title: 'Website Development',
+      description: 'Build your digital presence with modern, responsive websites that engage your audience and drive business growth. We create user-friendly, SEO-optimized websites that showcase your brand and convert visitors into customers.',
+      image: websiteImg
     }
   ]
 
@@ -97,7 +82,11 @@ const ServicesPage = () => {
                   </Col>
                   <Col lg={6}>
                     <div className="service-image">
-                      {service.illustration}
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="img-fluid service-img"
+                      />
                     </div>
                   </Col>
                 </>
@@ -116,7 +105,11 @@ const ServicesPage = () => {
                   </Col>
                   <Col lg={6} className="order-lg-1">
                     <div className="service-image">
-                      {service.illustration}
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="img-fluid service-img"
+                      />
                     </div>
                   </Col>
                 </>

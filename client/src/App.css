@@ -247,6 +247,7 @@ main {
   border-radius: 12px;
   background-color: var(--white);
   border: 1px solid var(--border-light);
+  min-height: 200px;
 }
 
 .service-card:hover {
@@ -261,10 +262,43 @@ main {
 .service-card .card-title {
   font-weight: 600;
   color: var(--primary-navy);
+  font-size: 1rem;
 }
 
 .service-card .card-text {
   line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Responsive service cards for 5 items */
+@media (min-width: 1200px) {
+  .services-preview .col-xl-2 {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .services-preview .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.333333%;
+  }
+}
+
+@media (max-width: 991px) {
+  .services-preview .col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-preview .col-md-6 {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
 }
 
 /* Page Headers */
@@ -303,6 +337,44 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.service-img {
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(var(--primary-rgb), 0.15);
+  transition: all 0.4s ease;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  width: 100%;
+  max-width: 500px;
+  border: 3px solid rgba(var(--secondary-rgb), 0.1);
+}
+
+.service-img:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(var(--primary-rgb), 0.25);
+  border-color: rgba(var(--secondary-rgb), 0.3);
+}
+
+/* Add subtle overlay for better text readability */
+.service-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-image:hover::before {
+  opacity: 1;
 }
 
 .service-illustration {
@@ -343,15 +415,6 @@ main {
   color: var(--secondary-teal);
   position: relative;
   z-index: 2;
-}
-
-.service-image img {
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.service-image img:hover {
-  transform: scale(1.02);
 }
 
 /* Contact Page */
@@ -467,6 +530,15 @@ main {
   .service-content {
     padding: 1rem 0;
   }
+  
+  .service-img {
+    max-width: 400px;
+    margin-bottom: 2rem;
+  }
+  
+  .service-image {
+    margin-bottom: 2rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -482,5 +554,14 @@ main {
   
   .contact-form {
     padding: 1.5rem;
+  }
+  
+  .service-img {
+    max-width: 350px;
+    border-radius: 15px;
+  }
+  
+  .service-image::before {
+    border-radius: 15px;
   }
 }
